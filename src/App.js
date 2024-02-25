@@ -19,6 +19,12 @@ function App() {
       localStorage.setItem('products', JSON.stringify(updatedProducts))
     }
     console.log(products);
+    const handleDeleteProduct = (index) =>{
+      const updatedProducts = [...products];
+      updatedProducts.splice(index, 1);
+      setProducts(updatedProducts);
+      localStorage.setItem('products', JSON.stringify(updatedProducts));
+    }
   return (
     <div className='container'>
       <h1 className='heading'>Product Manager</h1>
@@ -27,12 +33,13 @@ function App() {
         <h2 className='list-heading'>Product List</h2>
         <ul className='product-list'>
           {
-            products.map((product) => (
-              <li key={product.id} className="product-item">
+            products.map((product, index) => (
+              <li key={index} className="product-item">
                 <div>Product ID:{product.productId}</div>
                 <div>Product Name:{product.productName}</div>
                 <div>Price:Rs:{product.price}</div>
                 <div>Product Category:{product.category}</div>
+                <button onClick={() => handleDeleteProduct(index)} className='delete-btn'>Delete</button>
             </li>
             ))
           }
