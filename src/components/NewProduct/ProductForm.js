@@ -44,9 +44,9 @@ const ProductForm = ({onAddProduct}) => {
         />
         <select value={category} onChange={(e)=> setCategory(e.target.value)}>
             <option value="">Select Category</option>
-            <option value="Eletronics">Eletronics</option>
+            <option value="Electronics" Electronics>Eletronics</option>
             <option value="Clothing">Clothing</option>
-            <option value="Books">Books</option>
+            <option value="Skincare">Skincare</option>
             <option value="Kitchen">Kitchen</option>
         </select>
         <button type='submit' className='add-button'>Add</button>
